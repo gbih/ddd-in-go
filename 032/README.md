@@ -1,6 +1,8 @@
 # pg.32
 
-Original pseudo-code:
+- Data structure of Place Order workflow
+
+- Original F# pseudo-code:
 ```
 bounded context: Order-Taking
 data Order =

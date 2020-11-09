@@ -34,8 +34,7 @@ func (c CustomerInfo) Val() Order    { return c }
 func (s ShippingAddress) Val() Order { return s }
 func (b BillingAddress) Val() Order  { return b }
 func (o OrderLines) Val() Order      { return o }
-
-func (a AmountToBill) Val() Order { return a }
+func (a AmountToBill) Val() Order    { return a }
 
 var (
 	_ Order = (*CustomerInfo)(nil)
@@ -63,18 +62,11 @@ func do(i Order) string {
 }
 
 func main() {
-	customerInfo := CustomerInfo{LastName: "Baptista"}
-	// shippingAddess := ShippingAddress{Address: "123 Yuzawa"}
-	// billingAddress := BillingAddress{Address: "123 Yuzawa"}
-
-	//orderLines := OrderLines{OrderLine{Product: "TV", Quantity: 343, Price: 33.3}}
-
 	var orderArray OrderArray
-	// orderArray = []OrderLine{
-	// 	OrderLine{Product: "TV", Quantity: 343, Price: 33.34},
-	// 	OrderLine{Product: "Bagel", Quantity: 1003, Price: 2.13},
-	// 	OrderLine{Product: "Bike", Quantity: 3, Price: 443.55},
-	// }
+
+	customerInfo := CustomerInfo{LastName: "Baptista"}
+	shippingAddess := ShippingAddress{Address: "123 Yuzawa"}
+	billingAddress := BillingAddress{Address: "123 Yuzawa"}
 
 	orderArray = []OrderLine{
 		OrderLine{Product: "TV", Quantity: 343, Price: 33.34},
@@ -91,6 +83,8 @@ func main() {
 	fmt.Println("--------------------")
 	fmt.Printf("1. orderArray = %T\n", orderArray2)
 	fmt.Printf("2. orderArray = %#v\n", orderArray2)
-
+	fmt.Println("--------------------")
 	fmt.Println(do(customerInfo))
+	fmt.Println(do(shippingAddess))
+	fmt.Println(do(billingAddress))
 }
